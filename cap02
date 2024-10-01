@@ -1,1 +1,34 @@
+<!DOCTYPE html >
+< html  lang =" en " >
 
+< cabeça >
+    < meta  charset =" UTF-8 " >
+    < meta  name =" viewport " content =" width=largura-do-dispositivo, escala-inicial=1.0 " >
+    < title > Documento </ title >
+</ cabeça >
+
+< corpo >
+    < div  id =" minha-div " > </ div >
+
+    < roteiro >
+        buscar ( 'https://jsonplaceholder.typicode.com/posts' )
+            . então ( resposta  =>  resposta . json ( ) )
+            . então ( dados  =>  {
+                deixe  post  =  dados [ 0 ] ;
+                console . log ( dados ) ;
+                deixe  myDiv  =  document . getElementById ( 'minha-div' ) ;
+                deixe  título  =  document . createElement ( 'h1' ) ;
+                deixe  parágrafo  =  document . createElement ( 'p' ) ;
+
+                título . textContent  =  post . título ;
+                parágrafo . textContent  =  post . body ;
+
+                minhaDiv . anexarChild ( título ) ;
+                myDiv . appendChild ( parágrafo ) ;
+
+            } )
+            . catch ( erro  =>  console . erro ( 'Erro: '  +  erro ) ) ;
+    </ script >
+</ corpo >
+
+</ html >
